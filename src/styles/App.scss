@@ -51,4 +51,9 @@ $color-white: #fff;
   margin-left: 300px;
   height: 100vh;
   @include transition(all, 0.3s, ease);
+
+  #body {
+    margin: 20px;
+    border-radius: 10px;
+  }
 }

@@ -2,6 +2,7 @@ const sideBar = [
   {
     listsId: 1,
     listsTitle: 'BuyerPO',
+    listsUrl: 'BuyerPO',
     listsIcon: 'fab fa-creative-commons',
     list: [
       {
@@ -37,6 +38,7 @@ const sideBar = [
   {
     listsId: 2,
     listsTitle: 'AccounbtReceivable',
+    listsUrl: 'AccounbtReceivable',
     listsIcon: 'fab fa-creative-commons-by',
     list: [
       {
@@ -56,6 +58,7 @@ const sideBar = [
   {
     listsId: 3,
     listsTitle: 'SupplierPO',
+    listsUrl: 'SupplierPO',
     listsIcon: 'fab fa-creative-commons-nc',
     list: [
       {

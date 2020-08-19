@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { sideBar } from '../../core/sideBar';
 import './index.scss';
 
 const SideBar = ({ sideBarRef, match }) => {
-  console.log(match);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.postsReducer.posts);
+  const handlePosts = useCallback(() => dispatch({ type: 'POSTS_REQUEST' }), [
+    dispatch,
+  ]);
+  console.log('posts: ', posts);
   return (
     <div id="sideBar" ref={sideBarRef}>
+      <div onClick={handlePosts}>클릭</div>
       <div className="sideBarBrand d-flex justify-content-center align-items-center">
         <img src="http://placehold.it/180x35" />
       </div>
@@ -39,14 +46,13 @@ const SideBar = ({ sideBarRef, match }) => {
                   <ul>
                     {v1.list.map((v2, i2) => {
                       return (
-                        <li key={i2}>
-                          <NavLink
-                            to={`${match.url}/${v2.url}`}
-                            activeClassName="selected"
-                          >
-                            {v2.title}
-                          </NavLink>
-                        </li>
+                        <NavLink
+                          to={`${match.url}/${v1.listsUrl}/${v2.url}`}
+                          activeClassName="selected"
+                          key={i2}
+                        >
+                          <li>{v2.title}</li>
+                        </NavLink>
                       );
                     })}
                   </ul>

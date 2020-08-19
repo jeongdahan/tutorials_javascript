@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import MainContainer from '../containers/MainContainer';
 import SideBar from '../components/sidebar';
 
@@ -21,11 +22,30 @@ const MainPage = (props) => {
 
   return (
     <div id="mainPage">
-      <SideBar sideBarRef={sideBarRef} {...props} />
-      <MainContainer
-        MainContainerRef={MainContainerRef}
-        onToggle={handleToggle}
-      />
+      <SideBar {...props} sideBarRef={sideBarRef} />
+      <Switch>
+        <Route
+          exact
+          path={props.match.path}
+          render={(props) => (
+            <MainContainer
+              {...props}
+              MainContainerRef={MainContainerRef}
+              onToggle={handleToggle}
+            />
+          )}
+        />
+        <Route
+          path={`${props.match.path}/:listsUrl/:url`}
+          render={(props) => (
+            <MainContainer
+              {...props}
+              MainContainerRef={MainContainerRef}
+              onToggle={handleToggle}
+            />
+          )}
+        />
+      </Switch>
     </div>
   );
 };
