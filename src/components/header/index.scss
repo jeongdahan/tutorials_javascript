@@ -1,0 +1,29 @@
+#header {
+  position: sticky;
+  .sectionWrap {
+    padding: 10px 20px;
+    background-color: $color-white;
+  }
+
+  #listsWrap {
+    margin-left: 10px;
+    .list {
+      margin-left: 10px;
+    }
+  }
+
+  #breadCrumbWrap {
+    border-top: 1px solid $color-Secondary;
+    box-shadow: 0 2px 2px 0 rgba(60, 75, 100, 0.14),
+      0 3px 1px -2px rgba(60, 75, 100, 0.12), 0 1px 5px 0 rgba(60, 75, 100, 0.2);
+    .breadcrumb {
+      padding: 10px 20px;
+      background-color: $color-white;
+      .breadcrumb-item {
+        &.active {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}

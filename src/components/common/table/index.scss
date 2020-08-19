@@ -1,0 +1,36 @@
+.defaultTable {
+  background-color: $color-white;
+
+  .tableHeader {
+    padding: 10px 20px;
+  }
+
+  .tableBody {
+    padding: 40px 20px;
+    border-top: 1px solid $color-Secondary;
+
+    .optionWrap {
+    }
+
+    .tableInnerWrap {
+      margin-top: 20px;
+
+      table thead tr th,
+      table tbody tr td,
+      table tfoot tr th {
+        padding: 10px;
+      }
+      table thead {
+        border-top: 1px solid $color-Secondary;
+        border-bottom: 2px solid $color-Secondary;
+      }
+      table tbody tr td {
+        border-bottom: 2px solid $color-Secondary;
+      }
+    }
+
+    .paginationWrap {
+      margin-top: 20px;
+    }
+  }
+}

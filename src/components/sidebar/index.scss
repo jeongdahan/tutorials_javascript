@@ -1,0 +1,75 @@
+#sideBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: $color-gray900;
+
+  @include transition(all, 0.3s, ease);
+
+  .sideBarBrand {
+    height: 56px;
+    background-color: rgba(0, 0, 21, 0.2);
+  }
+
+  #accordion {
+    .card {
+      background-color: $color-gray900;
+      border: 0;
+      border-radius: 0;
+
+      .card-header {
+        padding: 10px 20px;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, 0.03);
+        border: 0;
+
+        h5 {
+          .btn-link {
+            position: relative;
+            width: 100%;
+            padding: 0;
+            color: $color-white !important;
+
+            &[aria-expanded='true'] i.arrow {
+              @include rotate(180);
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+              text-decoration: none;
+            }
+
+            i.listsIcon {
+              display: inline-block;
+              margin-right: 10px;
+              &::before {
+                font-size: 28px;
+              }
+            }
+
+            i.arrow {
+              display: block;
+              margin-left: auto;
+
+              @include transition(all, 0.5s, ease);
+            }
+          }
+        }
+      }
+
+      .card-body {
+        padding: 0;
+        ul li {
+          padding: 10px 60px;
+          color: $color-white;
+          &:hover {
+            background-color: $color-info;
+          }
+        }
+      }
+    }
+  }
+}

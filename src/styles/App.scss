@@ -1,0 +1,54 @@
+@import '_index.scss';
+@import '_utils.scss';
+
+/*=================================================
+                   Font
+=================================================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0 !important;
+}
+/*****##### H1 18 #####*****/
+// @mixin h1{
+//   font-size: 1.254rem;
+//   font-weight: 900;
+// }
+
+/*=================================================
+                 Color
+=================================================*/
+$color-primary: #321fdb;
+$color-Secondary: #ced2d8;
+$color-success: #2eb85c;
+$color-danger: #e55353;
+$color-warning: #f9b115;
+$color-info: #3399ff;
+$color-light: #ebedef;
+$color-dark: #636f83;
+$color-gray900: #4f5d73;
+$color-white: #fff;
+
+/*=================================================
+                 Button
+=================================================*/
+
+/*=================================================
+                 App
+=================================================*/
+#app {
+  min-height: 100vh;
+  background-color: #ebedef;
+}
+
+/*=================================================
+                 MainPage
+=================================================*/
+#mainContainer {
+  margin-left: 300px;
+  height: 100vh;
+  @include transition(all, 0.3s, ease);
+}
