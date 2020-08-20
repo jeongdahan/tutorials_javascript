@@ -1,29 +1,18 @@
 import axios from 'axios';
-import { takeEvery, put, call } from 'redux-saga/effects';
-
-import { posts, postsSuccess, postsFailure } from '../modules/posts';
+import { takeEvery } from 'redux-saga/effects';
+import createAsyncSaga from '../core/utils/reduxUtil';
+import { getAsyncAction, ASYNC_POSTS } from '../modules/posts';
 
 const postsApi = async () => {
   const res = await axios({
     url: 'https://jsonplaceholder.typicode.com/posts',
     method: 'GET',
   });
-  return res;
+  return res.data;
 };
 
-function* postsSaga(action) {
-  yield put(posts());
-
-  try {
-    const res = yield call(postsApi);
-
-    yield put(postsSuccess(res.data));
-  } catch (e) {
-    console.log(e);
-    yield put(postsFailure(e));
-  }
-}
+const postsSaga = createAsyncSaga(getAsyncAction, postsApi);
 
 export function* watchPostsSaga() {
-  yield takeEvery('POSTS_REQUEST', postsSaga);
+  yield takeEvery(ASYNC_POSTS.REQUEST, postsSaga);
 }

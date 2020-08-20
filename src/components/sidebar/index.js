@@ -2,15 +2,18 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { sideBar } from '../../core/sideBar';
+import { getAsyncAction } from '../../modules/posts';
 import './index.scss';
 
 const SideBar = ({ sideBarRef, match }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postsReducer.posts);
-  const handlePosts = useCallback(() => dispatch({ type: 'POSTS_REQUEST' }), [
+  const handlePosts = useCallback(() => dispatch(getAsyncAction.request()), [
     dispatch,
   ]);
+
   console.log('posts: ', posts);
+
   return (
     <div id="sideBar" ref={sideBarRef}>
       <div onClick={handlePosts}>클릭</div>
